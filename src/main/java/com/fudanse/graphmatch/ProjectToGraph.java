@@ -282,7 +282,7 @@ public class ProjectToGraph {
 			service.saveEdge(nn.getId(), body.getId(), CypherStatment.PARNET);
 			service.saveEdge(condition.getId(), body.getId(), CypherStatment.TRUE);
 			service.saveEdge(body.getId(), condition.getId(), CypherStatment.CDEPENDENCY);
-		} else if (node instanceof WhileStmt) {
+		} else if (node instanceof WhileStmt) { // while语句
 			WhileStmt whileStmt = (WhileStmt) node;
 			nn = new NeoNode(EnumNeoNodeLabelType.WHILESTMT.getValue(), EnumNeoNodeLabelType.WHILESTMT.getValue());
 			service.saveNode(nn);
@@ -514,8 +514,8 @@ public class ProjectToGraph {
 					+ convertType(binaryExpr.getRight(), map, indexMap);
 		} else if (node instanceof UnaryExpr) {
 			UnaryExpr unaryExpr = (UnaryExpr) node;
-			str = convertType(unaryExpr.getExpr(), map, indexMap) + " "
-					+ ConvertEnumUtil.getUnaryOperator(unaryExpr.getOperator());
+			str = ConvertEnumUtil.getUnaryOperator(unaryExpr.getOperator())
+					+ convertType(unaryExpr.getExpr(), map, indexMap);
 		} else if (node instanceof NameExpr) {
 			NameExpr nameExpr = (NameExpr) node;
 			if (map.containsKey(nameExpr.getName())) {
@@ -668,7 +668,7 @@ public class ProjectToGraph {
 		 * pg.createMethod(method, map); } body.size();
 		 */
 		String basePath = "/Users/xiyaoguo/Documents/flow/";
-//		String basePath = "/home/fdse/xiyaoguo/javacode/app/";
+		// String basePath = "/home/fdse/xiyaoguo/javacode/app/";
 		File file = new File(basePath);
 		ProjectToGraph pg = null;
 		if (file.isDirectory()) {

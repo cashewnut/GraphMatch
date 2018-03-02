@@ -72,7 +72,7 @@ public class GenerateGraph {
 			System.out.println("-----------------------------------------");
 			NeoNode node = create(stmt);
 			if (preNode != null)
-				service.saveEdge(preNode, node, CypherStatment.ORDER);
+				service.saveEdge(preNode.getId(), node.getId(), CypherStatment.ORDER);
 			preNode = node;
 		}
 

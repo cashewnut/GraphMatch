@@ -11,13 +11,13 @@ import org.neo4j.driver.v1.types.Path;
 
 public class Neo4JUtil {
 
-//	private final static String uri = "bolt://10.141.221.72:7687";
-//	private final static String username = "neo4j";
-//	private final static String password = "fdse";
+	private final static String uri = "bolt://10.141.221.72:7687";
+	private final static String username = "neo4j";
+	private final static String password = "fdse";
 	
-	private final static String uri = "bolt://localhost:7687";
-	private final static String username = "xiyaoguo@yeah.net";
-	private final static String password = "5611786xyy";
+//	private final static String uri = "bolt://localhost:7687";
+//	private final static String username = "xiyaoguo@yeah.net";
+//	private final static String password = "5611786xyy";
 
 	public static Driver getDriver() {
 		Driver driver = null;
